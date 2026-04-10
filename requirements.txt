@@ -1,7 +1,7 @@
---index-url https://download.pytorch.org/whl/cpu
-torch==2.11.0
-torchaudio==2.11.0
-torchvision==0.26.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.11.0+cpu
+torchaudio==2.11.0+cpu
+torchvision==0.26.0+cpu
 einops==0.8.2
 librosa==0.11.0
 faiss-cpu==1.13.2
