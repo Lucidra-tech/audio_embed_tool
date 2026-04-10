@@ -217,6 +217,12 @@ def build_sidebar() -> tuple[pd.DataFrame, list[str], int | bool, int, int, str]
             type="password",
             help="Spotify OAuth client secret.",
         )
+        spotify_uri = st.text_input(
+            "SPOTIFY_URI",
+            value=st.session_state.get("SPOTIFY_URI", ""),
+            type="text",
+            help="Spotify redirect URI.",
+        )
 
         st.session_state["HF_TOKEN"] = hf_token
         st.session_state["CLIENT_ID"] = client_id
@@ -231,6 +237,9 @@ def build_sidebar() -> tuple[pd.DataFrame, list[str], int | bool, int, int, str]
         if client_secret.strip():
             os.environ["CLIENT_SECRET"] = client_secret.strip()
             os.environ["SPOTIPY_CLIENT_SECRET"] = client_secret.strip()
+        if spotify_uri.strip():
+            os.environ["SPOTIFY_URI"] = spotify_uri.strip()
+            os.environ["SPOTIPY_REDIRECT_URI"] = spotify_uri.strip()
 
         st.divider()
 
