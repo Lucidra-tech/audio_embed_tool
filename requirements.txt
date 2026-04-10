@@ -1,5 +1,6 @@
 librosa==0.11.0
 torch==2.11.0
+torchaudio==2.11.0
 einops==0.8.2
 faiss-cpu==1.13.2
 huggingface_hub==1.10.0
