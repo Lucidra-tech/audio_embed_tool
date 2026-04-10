@@ -1,15 +1,21 @@
-import os
+import os # NO issue
 from pathlib import Path
-
+import sys
 import librosa
 import numpy as np
 import torch
 from huggingface_hub import hf_hub_download
 
-try:
-    from .musicfm25hz import MusicFM25Hz
-except ImportError:
-    from musicfm25hz import MusicFM25Hz
+
+# Construct the absolute path to the 'core' directory using the current working directory
+core_path = os.path.join(os.getcwd(), 'core')
+
+# Insert the 'core' path at the beginning of sys.path to prioritize it
+if core_path not in sys.path:
+    sys.path.insert(0, core_path)
+
+# Now Python can successfully locate and import the module
+from musicfm25hz import MusicFM25Hz
 
 REPO_ID = "minzwon/MusicFM"
 DATA_DIR = Path(os.getcwd()) / "data"
